@@ -1,0 +1,1 @@
+#Put monster superclass stuff here
