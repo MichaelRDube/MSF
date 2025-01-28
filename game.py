@@ -1,14 +1,17 @@
 #put game stuff here
 import pygame
 import time
+from monsters.goblin import Goblin
 class Game:
-    def __init__(self, player_team, cpu_team):
+    def __init__(self):
         self.update_interval = .0167
+        
+        self.cpu_monsters = []
+        self.player_monsters = []
         
         print(f"New game started!!")
 
-        self.cpu_monsters = cpu_team
-        self.player_monsters = player_team
+        self.pick_phase()
 
         self.current_cpu_monster = self.cpu_monsters[0]
         self.current_player_monster = self.player_monsters[0]
@@ -54,3 +57,26 @@ class Game:
             
         else:
             print(f"Tie!")
+
+    def pick_phase(self):
+        self.player_monsters = []
+        self.cpu_monsters = []
+
+        goblin = Goblin()
+        goblin.name = "Player Goblin 1"
+        self.player_monsters.append(goblin)
+
+        goblin = Goblin()
+        goblin.name = "Player Goblin 2"
+        self.player_monsters.append(goblin)
+
+        goblin = Goblin()
+        goblin.name = "Player Goblin 3"
+        self.player_monsters.append(goblin)
+
+        goblin = Goblin()
+        goblin.name = "CPU Mega Goblin"
+        goblin.speed = 1.8
+        goblin.health_max = 500
+        goblin.health_current = 500
+        self.cpu_monsters.append(goblin)
