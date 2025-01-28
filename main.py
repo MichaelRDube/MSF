@@ -20,6 +20,7 @@ player_team.append(goblin)
 
 goblin = Goblin()
 goblin.name = "CPU Mega Goblin"
+goblin.speed = 1.8
 goblin.health_max = 500
 goblin.health_current = 500
 cpu_team.append(goblin)
