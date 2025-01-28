@@ -8,6 +8,7 @@ class Monster:
         self.name = ""
         self.health_max = 0
         self.health_current = 0
+        self.alive = True
         self.strength = 0
         self.speed = 0
         self.progress = 0
@@ -17,12 +18,7 @@ class Monster:
         
         self.item = None
         
-        #start thread
-        self.thread = threading.Thread(target=self.run)
-        self.thread.daemon = True
-        self.thread.start()
-        
-    def run(self):
+    def run(self, time):
         #to be overridden by child class
         #general upkeep function
         return
@@ -56,8 +52,8 @@ class Monster:
         return
     
     def die(self):
-        print(f"{self.name} has died.")
-        self.thread._stop()
+        self.alive = False
+        print(f"{self.name} has died.\n")
         if self.target != None:
             self.target.get_kill()
         else:

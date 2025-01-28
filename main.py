@@ -1,20 +1,29 @@
 #put program entry stuff here
 from monsters.goblin import Goblin
+from game import Game
+import time
 
-gob1 = Goblin()
-gob1.name = "Hee hee boy"
+player_team = []
+cpu_team = []
 
-gob2 = Goblin()
-gob2.name = "Bad little man"
+goblin = Goblin()
+goblin.name = "Player Goblin 1"
+player_team.append(goblin)
 
-gob1.target = gob2
-gob2.target = gob1
+goblin = Goblin()
+goblin.name = "Player Goblin 2"
+player_team.append(goblin)
 
-while gob1.health_current > 0 and gob2.health_current > 0:
-    continue
+goblin = Goblin()
+goblin.name = "Player Goblin 3"
+player_team.append(goblin)
 
-if gob1.health_current <= 0:
-    print(f"{gob2.name} is victorious!")
-    
-else:
-    print(f"{gob1.name} is victorious!")
+goblin = Goblin()
+goblin.name = "CPU Mega Goblin"
+goblin.health_max = 500
+goblin.health_current = 500
+cpu_team.append(goblin)
+
+game = Game(player_team, cpu_team)
+
+game.run_game()
