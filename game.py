@@ -3,6 +3,7 @@ import pygame
 import time
 import sys
 from monsters.goblin import Goblin
+from monsters.spike import Spike
 class Game:
     def __init__(self, screen, clock):
         self.screen = screen
@@ -80,8 +81,8 @@ class Game:
         goblin.set_position([50, 275])
         self.player_monsters.append(goblin)
 
-        goblin = Goblin(self.screen)
-        goblin.name = "Player Goblin 2"
+        goblin = Spike(self.screen)
+        goblin.name = "Player Spike 2"
         goblin.set_position([50, 275])
         self.player_monsters.append(goblin)
 

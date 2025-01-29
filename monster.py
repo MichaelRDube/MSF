@@ -2,6 +2,7 @@
 import threading
 import time
 import pygame
+import math
 class Monster:
     def __init__(self, screen):
         
