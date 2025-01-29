@@ -5,8 +5,8 @@ from monster import Monster
 
 class Goblin(Monster):
     
-    def __init__(self):
-        super().__init__()
+    def __init__(self, screen):
+        super().__init__(screen)
         
         self.name = "Goblin"
         self.health_max = 300

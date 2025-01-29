@@ -3,8 +3,10 @@ import threading
 import time
 import pygame
 class Monster:
-    def __init__(self):
+    def __init__(self, screen):
         
+        self.screen = screen
+
         self.name = ""
         self.health_max = 0
         self.health_current = 0
@@ -15,6 +17,8 @@ class Monster:
         self.life_steal = 0
         self.resistance = 0
         self.target = None
+
+        self.position = [0, 0]
         
         self.item = None
         
@@ -22,6 +26,9 @@ class Monster:
         #to be overridden by child class
         #general upkeep function
         return
+    
+    def set_position(self, new_pos):
+        self.position = new_pos
         
     def calculate_attack(self):
         #to be overridden by child class
@@ -62,3 +69,20 @@ class Monster:
     def get_kill(self):
         #any effects that might happen when a monster gets a kill
         return
+    
+    def render(self):
+        self.render_health()
+        self.render_progress()
+        #render monster sprite
+    
+    def render_health(self):
+        pygame.draw.rect(self.screen, (0, 0, 0), [self.position[0], self.position[1], 200, 50])
+        pygame.draw.rect(self.screen, (211, 211, 211), [self.position[0]+2, self.position[1]+2, 196, 46])
+        health_length = int(196*self.health_current/self.health_max)
+        pygame.draw.rect(self.screen, (90, 255, 90), [self.position[0]+2, self.position[1]+2, health_length, 46])
+    
+    def render_progress(self):
+        pygame.draw.rect(self.screen, (0, 0, 0), [self.position[0], self.position[1]+55, 200, 50])
+        pygame.draw.rect(self.screen, (211, 211, 211), [self.position[0]+2, self.position[1]+57, 196, 46])
+        progress_length = int(196*self.progress/self.speed)
+        pygame.draw.rect(self.screen, (150, 150, 255), [self.position[0]+2, self.position[1]+57, progress_length, 46])
