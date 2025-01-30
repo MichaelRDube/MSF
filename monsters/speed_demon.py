@@ -1,21 +1,19 @@
-
 import pygame
-import math
 from monster import Monster
 
-class Spike(Monster):
+class Speed_Demon(Monster):
     
     def __init__(self, screen):
         super().__init__(screen)
         
-        self.name = "Spike Monster"
-        self.health_max = 400
+        self.name = "Speed Demon"
+        self.health_max = 175
         self.health_current = self.health_max
-        self.strength = 25
-        self.speed = 3
+        self.strength = 7
+        self.speed = 0.4
         self.progress = 0
         self.life_steal = 0
-        self.resistance = 5
+        self.resistance = 0
         
     def run(self, time):
         
@@ -27,32 +25,19 @@ class Spike(Monster):
         
     def calculate_attack(self):
         #calculate raw damage number here
-        self.attack(self.strength, 0)
+        self.attack(self.strength, 2)
     
     def attack(self, damage, true_damage):
         #apply on-attack effects
         #send raw damage number to opponent
         print(f"{self.name} attacks for {damage + true_damage} damage!")
         self.target.receive_attack(damage, true_damage)
+        return
     
     def receive_attack(self, damage, true_damage):
         #apply on-defend effects
         #apply resistances
-        damage -= self.resistance
-        if damage < 0:
-            damage = 0
-            
-        self.reflect_damage(damage, true_damage)
         self.apply_damage(damage + true_damage)
-        
-    def reflect_damage(self, damage, true_damage):
-        flat_reflect= 5
-        percent_reflect = math.ceil(.07*(damage+true_damage))
-        total_reflect = flat_reflect + percent_reflect
-        
-        print(f"{self.name} reflects {total_reflect} damage!")
-        self.target.apply_damage(total_reflect)
-        
     
     def apply_damage(self, total_damage):
         #apply damage
