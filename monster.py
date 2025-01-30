@@ -13,6 +13,7 @@ class Monster:
         self.health_current = 0
         self.alive = True
         self.strength = 0
+        self.true_strength = 0
         self.speed = 0
         self.progress = 0
         self.life_steal = 0

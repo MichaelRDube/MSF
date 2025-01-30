@@ -1,5 +1,3 @@
-import threading
-import time
 import pygame
 from monster import Monster
 
@@ -12,6 +10,7 @@ class Goblin(Monster):
         self.health_max = 300
         self.health_current = self.health_max
         self.strength = 45
+        self.true_strength = 0
         self.speed = 2.5
         self.progress = 0
         self.life_steal = 0
@@ -27,7 +26,7 @@ class Goblin(Monster):
         
     def calculate_attack(self):
         #calculate raw damage number here
-        self.attack(self.strength, 0)
+        self.attack(self.strength, self.true_strength)
     
     def attack(self, damage, true_damage):
         #apply on-attack effects

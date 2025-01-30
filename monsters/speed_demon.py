@@ -10,6 +10,7 @@ class Speed_Demon(Monster):
         self.health_max = 175
         self.health_current = self.health_max
         self.strength = 7
+        self.true_strength = 2
         self.speed = 0.4
         self.progress = 0
         self.life_steal = 0
@@ -25,7 +26,7 @@ class Speed_Demon(Monster):
         
     def calculate_attack(self):
         #calculate raw damage number here
-        self.attack(self.strength, 2)
+        self.attack(self.strength, self.true_strength)
     
     def attack(self, damage, true_damage):
         #apply on-attack effects

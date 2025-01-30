@@ -5,6 +5,8 @@ import sys
 from monsters.goblin import Goblin
 from monsters.spike import Spike
 from monsters.speed_demon import Speed_Demon
+from monsters.ghost import Ghost
+
 class Game:
     def __init__(self, screen, clock):
         self.screen = screen
@@ -82,10 +84,10 @@ class Game:
         goblin.set_position([50, 275])
         self.player_monsters.append(goblin)
 
-        goblin = Spike(self.screen)
-        goblin.name = "Player Spike 2"
-        goblin.set_position([50, 275])
-        self.player_monsters.append(goblin)
+        spike = Spike(self.screen)
+        spike.name = "Player Spike 2"
+        spike.set_position([50, 275])
+        self.player_monsters.append(spike)
 
         goblin = Goblin(self.screen)
         goblin.name = "Player Goblin 3"
@@ -97,10 +99,15 @@ class Game:
         goblin.set_position([550, 275])
         self.cpu_monsters.append(goblin)
 
-        goblin = Speed_Demon(self.screen)
-        goblin.name = "CPU Speed Demon"
-        goblin.set_position([550, 275])
-        self.cpu_monsters.append(goblin)
+        speed_demon = Speed_Demon(self.screen)
+        speed_demon.name = "CPU Speed Demon"
+        speed_demon.set_position([550, 275])
+        self.cpu_monsters.append(speed_demon)
+        
+        ghost = Ghost(self.screen)
+        ghost.name = "CPU Ghost"
+        ghost.set_position([550, 275])
+        self.cpu_monsters.append(ghost)
 
     def render(self):
         self.screen.fill((255, 255, 255))
