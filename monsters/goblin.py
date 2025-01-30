@@ -46,6 +46,8 @@ class Goblin(Monster):
         self.health_current -= total_damage
         if self.health_current < 0:
             self.health_current = 0
+            
+        self.target.observe_damage(total_damage)
         print(f"{self.name} receives {total_damage} damage!")
         print(f"{self.name} has {self.health_current} health remaining.\n")
 

@@ -1,19 +1,20 @@
 import pygame
+import math
 from monster import Monster
 
-class Speed_Demon(Monster):
+class Vampire(Monster):
     
     def __init__(self, screen):
         super().__init__(screen)
         
-        self.name = "Speed Demon"
-        self.health_max = 175
+        self.name = "Vampire"
+        self.health_max = 250
         self.health_current = self.health_max
-        self.strength = 7
-        self.true_strength = 2
-        self.speed = 0.4
+        self.strength = 23
+        self.true_strength = 0
+        self.speed = 2
         self.progress = 0
-        self.life_steal = 0
+        self.life_steal = .33
         self.resistance = 0
         
     def run(self, time):
@@ -53,3 +54,12 @@ class Speed_Demon(Monster):
 
         if self.health_current <= 0:
             self.die()
+            
+    def observe_damage(self, dealt_damage):
+        healing = int(math.ceil(self.life_steal*dealt_damage))
+        self.health_current += healing
+        if self.health_current > self.health_max:
+            self.health_current = self.health_max
+            
+        print(f"{self.name} stole {healing} health from {self.target.name}!")
+        print(f"{self.name} now with {self.health_current} health!")

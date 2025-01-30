@@ -72,6 +72,11 @@ class Monster:
         #any effects that might happen when a monster gets a kill
         return
     
+    def observe_damage(self, dealt_damage):
+        #So the monster can know how much damage was actually done to target
+        #for healing purposes
+        return
+    
     def render(self):
         self.render_health()
         self.render_progress()
