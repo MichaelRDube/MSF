@@ -14,7 +14,7 @@ class Vampire(Monster):
         self.true_strength = 0
         self.speed = 2
         self.progress = 0
-        self.life_steal = .33
+        self.life_steal = .5
         self.resistance = 0
         
     def run(self, time):
