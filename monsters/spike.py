@@ -11,9 +11,9 @@ class Spike(Monster):
         self.name = "Spike Monster"
         self.health_max = 400
         self.health_current = self.health_max
-        self.strength = 25
+        self.strength = 15
         self.true_strength = 0
-        self.speed = 3
+        self.speed = 4
         self.progress = 0
         self.life_steal = 0
         self.resistance = 5
