@@ -7,6 +7,7 @@ from monsters.spike import Spike
 from monsters.speed_demon import Speed_Demon
 from monsters.ghost import Ghost
 from monsters.vampire import Vampire
+from monsters.reaper import Reaper
 
 class Game:
     def __init__(self, screen, clock):
@@ -95,16 +96,17 @@ class Game:
         goblin.set_position([50, 275])
         self.player_monsters.append(goblin)
 
-        goblin = Goblin(self.screen)
-        goblin.name = "CPU Goblin"
-        goblin.set_position([550, 275])
-        self.cpu_monsters.append(goblin)
 
         speed_demon = Speed_Demon(self.screen)
         speed_demon.name = "CPU Speed Demon"
         speed_demon.set_position([550, 275])
         self.cpu_monsters.append(speed_demon)
         
+        reaper = Reaper(self.screen)
+        reaper.name = "CPU Reaper"
+        reaper.set_position([550, 275])
+        self.cpu_monsters.append(reaper)
+                
         ghost = Ghost(self.screen)
         ghost.name = "CPU Ghost"
         ghost.set_position([550, 275])
