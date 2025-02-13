@@ -19,6 +19,7 @@ class Monster:
         self.life_steal = 0
         self.resistance = 0
         self.target = None
+        self.retreat = 0
 
         self.position = [0, 0]
         
